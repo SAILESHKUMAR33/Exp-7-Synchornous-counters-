@@ -46,43 +46,90 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+
+STEP 1
+
+1.Create a new project in Quartus|| Software.
+
+STEP 2
+
+2.Name the project as upc and downc for up and down counter.
+
+STEP 3
+
+3.Create a new verilog hdl file in the project file.
+
+STEP 4
+
+4.Within that file write the program for up and down counter
+
+STEP 5
+
+5.After that run the program and give the clock pulse value as 50 in timing diagram and run the program.
+
 
 
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Developed by: SHARANGINI T K
 
+RegisterNumber: 212222230143
 
+# UPCOUNTER:
+```
+module upc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+		A[1]=(((A[2])&(A[3]))^A[1]);
+		A[2]=((A[3])^A[2]);
+		A[3]=1^A[3];
+end
+endmodule
+```
+# DOWNCOUNTER
+```
+module downc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
+	A[1]=(((A[2])&(A[3]))^A[1]);
+	A[2]=((A[3])^A[2]);
+	A[3]=1^A[3];
+end
+endmodule
+```
+# RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+## UPCOUNTER
+![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/594de329-4680-49b5-9708-10f204210778)
 
+## DOWNCOUNER
+![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/519f546d-ab37-4c95-895d-ad8eee9dafde)
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+# TIMING DIGRAMS FOR COUNTER  
 
+## UPCOUNTER
+![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/6cb8cfee-6a66-4193-bf00-45c721b61072)
 
+## DOWNCOUNTER
+![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/74abdc54-873c-4b68-934a-341e1369ef71)
 
+# TRUTH TABLE 
 
+## UP COUNTER:
+![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/eb2a4a3b-44f0-4abf-b828-ed46cfa8412d)
 
+## DOWN COUNTER:
+![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/544d6443-f690-4ab1-b579-b641f759d385)
 
+# RESULTS 
 
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
