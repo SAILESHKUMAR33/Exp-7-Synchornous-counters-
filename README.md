@@ -74,9 +74,9 @@ STEP 5
 
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 
-Developed by: SHARANGINI T K
+Developed by: SAILESHKUMAR A
 
-RegisterNumber: 212222230143
+RegisterNumber: 212222230126
 
 # UPCOUNTER:
 ```
