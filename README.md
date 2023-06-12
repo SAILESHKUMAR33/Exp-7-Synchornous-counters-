@@ -46,90 +46,62 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-
-STEP 1
-
-1.Create a new project in Quartus|| Software.
-
-STEP 2
-
-2.Name the project as upc and downc for up and down counter.
-
-STEP 3
-
-3.Create a new verilog hdl file in the project file.
-
-STEP 4
-
-4.Within that file write the program for up and down counter
-
-STEP 5
-
-5.After that run the program and give the clock pulse value as 50 in timing diagram and run the program.
-
-
-
+/* Compile and run the verilog program in the quartus software. Realize the RTL logic for the same. Create a new university program vwf and import nodes using node finder. Run functional simulation to obtain the timing diagram. */
 
 ### PROGRAM 
-
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: SAILESHKUMAR 
+RegisterNumber:  212222230126
+UP COUNTER :
 
-Developed by: SAILESHKUMAR A
-
-RegisterNumber: 212222230126
-
-# UPCOUNTER:
-```
-module upc(clk,A);
+module uc(clk,A);
 input clk;
-output reg[0:3]A;
+output reg [3:0]A;
 always@(posedge clk)
 begin
-		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
-		A[1]=(((A[2])&(A[3]))^A[1]);
-		A[2]=((A[3])^A[2]);
-		A[3]=1^A[3];
+A[3]=((A[2]&A[1])&A[0])^A[3];
+A[2]=(A[1]&A[0])^A[2];
+A[1]=(A[0]^A[1]);
+A[0]=1^A[0];
+end
+endmodule
+
+DOWN COUNTER :
+module dc(clk,A);
+input clk;
+output reg [3:0]A;
+always @(posedge clk)
+begin
+A[3]=((~A[2])&(~A[1])&(~A[0]))^A[3];
+A[2]=((~A[1])&(~A[0]))^A[2];
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
 end
 endmodule
 ```
-# DOWNCOUNTER
-```
-module downc(clk,A);
-input clk;
-output reg[0:3]A;
-always@(posedge clk)
-begin
-	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
-	A[1]=(((A[2])&(A[3]))^A[1]);
-	A[2]=((A[3])^A[2]);
-	A[3]=1^A[3];
-end
-endmodule
-```
-# RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
-## UPCOUNTER
-![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/594de329-4680-49b5-9708-10f204210778)
-
-## DOWNCOUNER
-![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/519f546d-ab37-4c95-895d-ad8eee9dafde)
-
-# TIMING DIGRAMS FOR COUNTER  
-
-## UPCOUNTER
-![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/6cb8cfee-6a66-4193-bf00-45c721b61072)
-
-## DOWNCOUNTER
-![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/74abdc54-873c-4b68-934a-341e1369ef71)
-
-# TRUTH TABLE 
+### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
 ## UP COUNTER:
-![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/eb2a4a3b-44f0-4abf-b828-ed46cfa8412d)
+![image](https://github.com/Thirisha-s/Exp-7-Synchornous-counters-/assets/120380280/79e6ea03-c707-4ce0-890d-3290896978b6)
 
-## DOWN COUNTER:
-![image](https://github.com/shara56/Exp-7-Synchornous-counters-/assets/113497104/544d6443-f690-4ab1-b579-b641f759d385)
+## DOUN COUNTER:
+![image](https://github.com/Thirisha-s/Exp-7-Synchornous-counters-/assets/120380280/afa34e1b-810d-4e8c-a823-39f007dc9106)
 
-# RESULTS 
+### TIMING DIGRAMS FOR COUNTER  
+## UP COUNTER:
+![image](https://github.com/Thirisha-s/Exp-7-Synchornous-counters-/assets/120380280/df9e8923-e0fa-4da4-b653-05e9cd1d3e7b)
 
-Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
+## DOUN COUNTER:
+![image](https://github.com/Thirisha-s/Exp-7-Synchornous-counters-/assets/120380280/4967df4b-0d55-469c-95b8-4e53f2dac4b2)
+
+### TRUTH TABLE 
+## UP COUNTER:
+![image](https://github.com/Thirisha-s/Exp-7-Synchornous-counters-/assets/120380280/f5f4c0dd-8c2d-478c-810a-36a1f03466ba)
+
+## ## DOUN COUNTER:
+![image](https://github.com/Thirisha-s/Exp-7-Synchornous-counters-/assets/120380280/55349fb5-3f4b-4880-803d-017bb54a7af6)
+
+### RESULTS :
+Thus,4 bit Up and Down counters are implemented successfully.
